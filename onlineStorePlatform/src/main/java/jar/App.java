@@ -3,7 +3,9 @@ package jar;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import DBConnection.DBConnection;
+import jar.DBConnection.DBConnection;
+import jar.controller.BuyerController;
+import jar.user.Buyer;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,10 +15,20 @@ import java.text.ParseException;
 @SpringBootApplication
 public class App 
 {
-   public static void main( String[] args )
-    {
+   public static void main( String[] args ) throws SQLException
+    {	
+    	Connection c =  DBConnection.getConnectoin();
     	
-    	Connection c =  DBConnection.getInstance();
+    	BuyerController buyerController = new BuyerController();
+    	
+    	if(buyerController.Login(new Buyer("User1@gmail.com", "User1", "123")) != null)
+    		{
+    			System.out.println("login");
+    		}
+    	else
+    	{
+    		System.out.println("ERROR");
+    	}
     	
     //	SpringApplication.run(App.class, args);
     }

@@ -21,7 +21,6 @@ public class StoreOwnerController extends UserController {
 	public List<User> ListUsers ()
 	{
 		
-		
 		return null;
 	}
 	

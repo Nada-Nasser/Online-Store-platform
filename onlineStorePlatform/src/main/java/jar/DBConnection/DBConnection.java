@@ -1,4 +1,4 @@
-package DBConnection;
+package jar.DBConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class DBConnection
 
 	}
 	
-	private static Connection getConnectoin()
+	private static Connection getInstance()
 	{
 		try {
         	Connection connection = DriverManager.getConnection(connectionUrl);
@@ -27,7 +27,7 @@ public class DBConnection
 		}
 	}
 
-	public static Connection getInstance() 
+	public static Connection getConnectoin() 
 	{ 
 		if (connection == null) 
 		{ 
@@ -37,7 +37,7 @@ public class DBConnection
 				// check again as multiple threads 
 				// can reach above step 
 				if (connection==null) 
-					connection = getConnectoin(); 
+					connection = getInstance(); 
 			} 
 		} 
 		return connection; 

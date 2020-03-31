@@ -1,18 +1,48 @@
 package jar.managers;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
+import jar.DBConnection.DBConnection;
 import jar.user.User;
 
-public class UserManager {
+public class UserManager 
+{
 	public List<User> getUsers()
 	{
 		return null;
 	}
 	
-	public boolean isRegisterd(User user)
-	{
-		return false;
+	public boolean isRegisterd(User user) throws SQLException
+	{		
+		Connection connection = DBConnection.getConnectoin();
+		String email = user.getEmail();
+		String Password = user.getPassword();
+		String Name = user.getName();
+		
+		String showSql = "SELECT Name, password, email \r\n" + 
+				"FROM Buyers WHERE email = '" + email + "'  AND\r\n" + 
+				"password = '" + Password + "' AND Name = '" + Name + "';";
+		
+		ResultSet resultSet = null;
+
+		try (
+			PreparedStatement prepsInsertProduct = 
+			connection.prepareStatement(showSql, Statement.RETURN_GENERATED_KEYS);) 
+		{
+			prepsInsertProduct.execute();
+			resultSet = prepsInsertProduct.getResultSet();
+			 
+			if(resultSet.next()){
+		         return true;        
+		     }
+			else
+				return false;
+		}
 	}
 	
 	public boolean addUser(String name, String password, String email)
@@ -20,4 +50,5 @@ public class UserManager {
 		return false;
 		
 	}
+
 }
