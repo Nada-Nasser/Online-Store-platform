@@ -1,0 +1,48 @@
+package DBConnection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection 
+{
+	// Double Checked Locking based Java implementation of 
+	// singleton design pattern 
+	private volatile static Connection connection; 
+
+	private static String connectionUrl = "jdbc:sqlserver://DESKTOP-R2QBSGS:1433;databaseName=OnlineStore;integratedSecurity=true;";
+	private DBConnection() {
+
+	}
+	
+	private static Connection getConnectoin()
+	{
+		try {
+        	Connection connection = DriverManager.getConnection(connectionUrl);
+        	System.out.println("Done.");
+        	return connection;
+        }
+        catch (Exception e) {
+			// TODO: handle exception
+        	return null;
+		}
+	}
+
+	public static Connection getInstance() 
+	{ 
+		if (connection == null) 
+		{ 
+			// To make thread safe 
+			synchronized (DBConnection.class) 
+			{ 
+				// check again as multiple threads 
+				// can reach above step 
+				if (connection==null) 
+					connection = getConnectoin(); 
+			} 
+		} 
+		return connection; 
+	}
+
+
+
+}

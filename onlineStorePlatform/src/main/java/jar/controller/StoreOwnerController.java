@@ -1,5 +1,7 @@
 package jar.controller;
 
+import java.util.List;
+
 import jar.user.User;
 
 public class StoreOwnerController extends UserController {
@@ -15,5 +17,12 @@ public class StoreOwnerController extends UserController {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	public List<User> ListUsers ()
+	{
+		
+		
+		return null;
+	}
+	
 }
