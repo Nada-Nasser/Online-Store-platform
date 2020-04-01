@@ -14,8 +14,8 @@ public class StoreOwnerController extends UserController {
 
 	@Override
 	public User Login(User user) {
+		return user;
 		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	public List<User> ListUsers ()

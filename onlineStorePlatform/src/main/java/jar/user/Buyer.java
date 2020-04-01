@@ -7,5 +7,7 @@ public class Buyer extends User
 		super(email, name, password);
 	}
 
-	
+	public Buyer() {
+		super();
+	}
 }

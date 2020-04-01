@@ -1,14 +1,14 @@
 package jar.controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import jar.DBConnection.DBConnection;
 import jar.user.User;
 
+@RestController
 public class BuyerController extends UserController {
 
 	@Override
@@ -18,7 +18,8 @@ public class BuyerController extends UserController {
 	}
 
 	@Override
-	public User Login(User user) throws SQLException 
+	@RequestMapping(method = RequestMethod.POST , value = "/onlineStore/Login")
+	public User Login(@RequestBody User user) throws SQLException 
 	{
 		boolean isReg = manager.isRegisterd(user);
 		
@@ -26,6 +27,14 @@ public class BuyerController extends UserController {
 			return user;
 		else 
 			return null;
+		
+	}
+	
+	
+	@RequestMapping("/onlineStore")
+	String SeyHi()
+	{
+		return "Hi";
 	}
 
 }

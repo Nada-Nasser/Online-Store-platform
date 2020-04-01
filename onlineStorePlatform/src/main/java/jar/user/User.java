@@ -1,8 +1,21 @@
 package jar.user;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@Entity
+//@JsonDeserialize(as = Buyer.class)
+
+@JsonTypeInfo(use = Id.NAME,
+include = JsonTypeInfo.As.PROPERTY,
+property = "type")
+@JsonSubTypes({
+@Type(value = Buyer.class, name = "Buyer"),
+@Type(value = Administrator.class, name = "Admin"),
+@Type(value = StoreOwner.class, name = "Owner"),
+})
 public abstract class User 
 {
 	private  String email;
@@ -18,6 +31,11 @@ public abstract class User
 		this.email = email;
 		Name = name;
 		Password = password;
+	}
+	
+	public User()
+	{
+		
 	}
 	
 	public void setEmail(String email) {

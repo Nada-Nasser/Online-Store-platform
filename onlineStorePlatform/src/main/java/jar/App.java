@@ -17,6 +17,7 @@ public class App
 {
    public static void main( String[] args ) throws SQLException
     {	
+	   /*
     	Connection c =  DBConnection.getConnectoin();
     	
     	BuyerController buyerController = new BuyerController();
@@ -29,7 +30,7 @@ public class App
     	{
     		System.out.println("ERROR");
     	}
-    	
-    //	SpringApplication.run(App.class, args);
+    	*/
+    	SpringApplication.run(App.class, args);
     }
 }
