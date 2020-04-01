@@ -7,9 +7,9 @@ import jar.user.User;
 public class AdministratorController extends UserController {
 
 	@Override
-	public User register(User user) {
+	public boolean register(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
