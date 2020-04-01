@@ -22,6 +22,7 @@ public class BuyerController extends UserController {
 	@Override
 	@RequestMapping(method=RequestMethod.POST , value = "/registerBuyer")
 	public boolean register(@RequestBody User user) throws SQLException {
+			
 			return manager.addUser(user);
 	}
 
@@ -39,10 +40,5 @@ public class BuyerController extends UserController {
 	}
 	
 	
-	@RequestMapping("/onlineStore")
-	String SeyHi()
-	{
-		return "Hi";
-	}
-
+	
 }

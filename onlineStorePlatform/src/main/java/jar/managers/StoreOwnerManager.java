@@ -15,12 +15,7 @@ import jar.user.User;
 @Service("Owner")
 public class StoreOwnerManager extends UserManager {
 
-	@Override
-	public List<User> getUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public boolean isRegisterd(User user) throws SQLException 
 	{
@@ -51,21 +46,28 @@ public class StoreOwnerManager extends UserManager {
 	}
 
 	@Override
-	public boolean addUser(User user) {
-		Connection conn = DBConnection.getConnectoin();
-		PreparedStatement stmt;
-		try {
-			stmt = conn.prepareStatement("INSERT INTO StoreOwner(Name, password, email) VALUES (?, ?, ?)");
-			stmt.setString(1, user.getName());
-			stmt.setString(2, user.getPassword());
-			stmt.setString(3, user.getEmail());
-			stmt.executeUpdate();
-			return true;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public boolean addUser(User user) throws SQLException {
+		if(isRegisterd(user))
+		{
 			return false;
+		}else
+		{
+			Connection conn = DBConnection.getConnectoin();
+			PreparedStatement stmt;
+			try {
+				stmt = conn.prepareStatement("INSERT INTO StoreOwner(Name, password, email) VALUES (?, ?, ?)");
+				stmt.setString(1, user.getName());
+				stmt.setString(2, user.getPassword());
+				stmt.setString(3, user.getEmail());
+				stmt.executeUpdate();
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
 		}
+		
 	}
 
 }

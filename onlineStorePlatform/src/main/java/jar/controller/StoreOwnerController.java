@@ -40,10 +40,6 @@ public class StoreOwnerController extends UserController
 			return null;
 	}
 	
-	public List<User> ListUsers ()
-	{
-		
-		return null;
-	}
+	
 	
 }

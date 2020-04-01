@@ -22,7 +22,7 @@ public class AdministratorController extends UserController
 
 	@Autowired
 	@Qualifier("Admin")
-	UserManager manager = new AdministratorManager();
+	AdministratorManager manager = new AdministratorManager();
 
 	@Override
 	@RequestMapping(method=RequestMethod.POST , value = "/registerAdmin")
@@ -43,9 +43,10 @@ public class AdministratorController extends UserController
 			return null;
 	}
 	
-	public List<User> listUsers (User user)
+	@RequestMapping("/getUsers")
+	public List<User> listUsers () throws SQLException
 	{
-		return null;
+		return(manager.getUsers());
 		
 	}
 	

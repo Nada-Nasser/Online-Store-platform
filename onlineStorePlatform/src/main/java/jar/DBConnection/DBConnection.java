@@ -20,7 +20,6 @@ public class DBConnection
 	{
 		try {
         	Connection connection = DriverManager.getConnection(connectionUrl);
-        	System.out.println("Done.");
         	return connection;
         }
         catch (Exception e) {

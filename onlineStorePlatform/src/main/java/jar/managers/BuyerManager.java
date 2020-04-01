@@ -15,10 +15,7 @@ import jar.user.User;
 @Service("Buyer")
 public class BuyerManager extends UserManager {
 
-	@Override
-	public List<User> getUsers() {
-		return null;
-	}
+	
 
 	@Override
 	public boolean isRegisterd(User user) throws SQLException
@@ -51,22 +48,29 @@ public class BuyerManager extends UserManager {
 
 
 	@Override
-	public boolean addUser(User user) {
+	public boolean addUser(User user) throws SQLException {
 		// TODO Auto-generated method stub
-			Connection conn = DBConnection.getConnectoin();
-			PreparedStatement stmt;
-			try {
-				stmt = conn.prepareStatement("INSERT INTO Buyers(Name, password, email) VALUES (?, ?, ?)");
-				stmt.setString(1, user.getName());
-				stmt.setString(2, user.getPassword());
-				stmt.setString(3, user.getEmail());
-				stmt.executeUpdate();
-				return true;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if(isRegisterd(user))
+			{
 				return false;
+			}else
+			{
+				Connection conn = DBConnection.getConnectoin();
+				PreparedStatement stmt;
+				try {
+					stmt = conn.prepareStatement("INSERT INTO Buyers(Name, password, email) VALUES (?, ?, ?)");
+					stmt.setString(1, user.getName());
+					stmt.setString(2, user.getPassword());
+					stmt.setString(3, user.getEmail());
+					stmt.executeUpdate();
+					return true;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return false;
+				}
 			}
+			
 	}
 
 }
