@@ -19,7 +19,7 @@ public class StoreOwnerController extends UserController
 	@Autowired
 	@Qualifier("Owner")
 	UserManager manager = new StoreOwnerManager();
-	
+
 		
 	@Override
 	@RequestMapping(method=RequestMethod.POST , value = "/registerOwner")

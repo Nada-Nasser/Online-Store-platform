@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import jar.managers.AdministratorManager;
 import jar.managers.StoreOwnerManager;
 import jar.managers.UserManager;
 import jar.user.User;
 
 @RestController
-public class AdministratorController extends UserController {
+public class AdministratorController extends UserController 
+{
 
 	@Autowired
 	@Qualifier("Admin")
 	UserManager manager = new AdministratorManager();
-	
-	
+
 	@Override
 	@RequestMapping(method=RequestMethod.POST , value = "/registerAdmin")
 	public boolean register(@RequestBody User user) throws SQLException {
@@ -31,9 +32,15 @@ public class AdministratorController extends UserController {
 	}
 
 	@Override
-	public User Login(User user) {
-		return user;
-		// TODO Auto-generated method stub
+	@RequestMapping(method = RequestMethod.GET , value = "/onlineStore/LoginAdmin")
+	public User Login(@RequestBody User user) throws SQLException 
+	{
+		boolean isReg = manager.isRegisterd(user);
+		System.out.println(user.getName()+  " " + isReg);
+		if(isReg)
+			return user;
+		else 
+			return null;
 	}
 	
 	public List<User> listUsers (User user)
