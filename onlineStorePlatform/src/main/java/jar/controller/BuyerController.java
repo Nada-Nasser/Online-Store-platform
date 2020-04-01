@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import jar.managers.BuyerManager;
 import jar.managers.UserManager;
 import jar.user.User;
 
@@ -15,23 +16,13 @@ import jar.user.User;
 public class BuyerController extends UserController {
 
 	@Autowired
-	UserManager m = new UserManager();
+	UserManager m = new BuyerManager();
 	
 	@Override
 	@RequestMapping(method=RequestMethod.POST , value = "/registerBuyer")
-	public boolean register(@RequestBody User user) {
-		// TODO Auto-generated method stub
-		if(m.isRegisterd(user)) {
-			try {
-				return(m.addUser(user));
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}else {
-			return false;
-		}
-			return false;
+	public boolean register(@RequestBody User user) throws SQLException {
+			m.addUser(user);
+			return true;	
 	}
 
 	@Override

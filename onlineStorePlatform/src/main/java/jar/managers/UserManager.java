@@ -11,32 +11,9 @@ import jar.DBConnection.DBConnection;
 import jar.user.User;
 
 @Service
-public class UserManager {
-	public List<User> getUsers()
-	{
-		return null;
-	}
+public abstract class UserManager {
+	public abstract List<User> getUsers();
+	public abstract boolean isRegisterd(User user);
+	public abstract boolean addUser(User user) throws SQLException;
 	
-	public boolean isRegisterd(User user)
-	{
-		return true;
-	}
-	
-	public boolean addUser(User user) throws SQLException
-	{
-		Connection conn = DBConnection.getConnectoin();
-		if(conn!=null) {
-			PreparedStatement stmt = conn.prepareStatement("INSERT INTO Buyers(Name, password, email) VALUES (?, ?, ?)");
-			stmt.setString(1, user.Name);
-			stmt.setString(2, user.Password);
-			stmt.setString(3, user.email);
-			stmt.executeUpdate();
-			return true;
-			
-		}else {
-			return false;
-		}
-		
-		
-	}
 }
