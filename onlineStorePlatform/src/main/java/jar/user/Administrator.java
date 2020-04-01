@@ -6,5 +6,10 @@ public class Administrator extends User {
 		super(email, name, password);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Administrator()
+	{
+		super();
+	}
 
 }

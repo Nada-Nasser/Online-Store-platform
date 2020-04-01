@@ -18,7 +18,7 @@ public class StoreOwnerController extends UserController
 {
 	@Autowired
 	@Qualifier("Owner")
-	UserManager manager = new AdministratorManager();
+	UserManager manager = new StoreOwnerManager();
 		
 	@Override
 	public boolean register(User user) {
