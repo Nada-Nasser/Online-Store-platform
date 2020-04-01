@@ -29,7 +29,7 @@ public class AdministratorManager extends UserManager{
 		String Name = user.getName();
 		
 		String showSql = "SELECT Name, password, email \r\n" + 
-				"FROM Administrator WHERE email = '" + email + "'  AND\r\n" + 
+				"FROM Administrator  WHERE email = '" + email + "'  AND\r\n" + 
 				"password = '" + Password + "' AND Name = '" + Name + "';";
 		
 		ResultSet resultSet = null;
