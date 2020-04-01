@@ -1,16 +1,10 @@
 package jar.managers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import jar.DBConnection.DBConnection;
 import jar.user.User;
 
 @Service
