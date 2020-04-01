@@ -12,12 +12,11 @@ import org.springframework.stereotype.Service;
 import jar.DBConnection.DBConnection;
 import jar.user.User;
 
-@Service
+@Service("Buyer")
 public class BuyerManager extends UserManager {
 
 	@Override
 	public List<User> getUsers() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -1,11 +1,25 @@
 package jar.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
-import jar.user.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-public class StoreOwnerController extends UserController {
+import jar.managers.*;
+import jar.user.*;
 
+@RestController
+public class StoreOwnerController extends UserController 
+{
+	@Autowired
+	@Qualifier("Owner")
+	UserManager manager = new AdministratorManager();
+		
 	@Override
 	public boolean register(User user) {
 		// TODO Auto-generated method stub
@@ -13,9 +27,15 @@ public class StoreOwnerController extends UserController {
 	}
 
 	@Override
-	public User Login(User user) {
-		return user;
-		// TODO Auto-generated method stub
+	@RequestMapping(method = RequestMethod.GET , value = "/onlineStore/LoginOwner")
+	public User Login(@RequestBody User user) throws SQLException 
+	{
+		boolean isReg = manager.isRegisterd(user);
+		
+		if(isReg)
+			return user;
+		else 
+			return null;
 	}
 	
 	public List<User> ListUsers ()
