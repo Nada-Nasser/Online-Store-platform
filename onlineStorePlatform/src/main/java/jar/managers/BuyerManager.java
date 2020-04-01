@@ -32,9 +32,9 @@ public class BuyerManager extends UserManager {
 			PreparedStatement stmt;
 			try {
 				stmt = conn.prepareStatement("INSERT INTO Buyers(Name, password, email) VALUES (?, ?, ?)");
-				stmt.setString(1, user.Name);
-				stmt.setString(2, user.Password);
-				stmt.setString(3, user.email);
+				stmt.setString(1, user.getName());
+				stmt.setString(2, user.getPassword());
+				stmt.setString(3, user.getEmail());
 				stmt.executeUpdate();
 				return true;
 			} catch (SQLException e) {

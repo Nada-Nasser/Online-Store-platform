@@ -15,12 +15,12 @@ import jar.user.User;
 public class BuyerController extends UserController {
 
 	@Autowired
-	UserManager m = new BuyerManager();
+	UserManager manager = new BuyerManager();
 	
 	@Override
 	@RequestMapping(method=RequestMethod.POST , value = "/registerBuyer")
 	public boolean register(@RequestBody User user) throws SQLException {
-			m.addUser(user);
+			manager.addUser(user);
 			return true;	
 	}
 
