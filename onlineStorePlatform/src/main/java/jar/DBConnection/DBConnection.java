@@ -8,9 +8,10 @@ public class DBConnection
 	// Double Checked Locking based Java implementation of 
 	// singleton design pattern 
 	private volatile static Connection connection; 
-	
+//	private static String connectionUrl = "jdbc:sqlserver://MSI:1433;databaseName=OnlineStore;integratedSecurity=true;";
 
-	private static String connectionUrl = "jdbc:sqlserver://MSI:1433;databaseName=OnlineStore;integratedSecurity=true;";
+	private static String connectionUrl = "jdbc:sqlserver://DESKTOP-R2QBSGS:1433;databaseName=OnlineStore;integratedSecurity=true;";
+
 	private DBConnection() {
 
 	}
@@ -43,7 +44,6 @@ public class DBConnection
 		} 
 		return connection; 
 	}
-
 
 
 }
