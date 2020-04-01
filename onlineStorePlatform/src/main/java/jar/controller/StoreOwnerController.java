@@ -18,12 +18,14 @@ public class StoreOwnerController extends UserController
 {
 	@Autowired
 	@Qualifier("Owner")
-	UserManager manager = new AdministratorManager();
+	UserManager manager = new StoreOwnerManager();
+	
 		
 	@Override
-	public boolean register(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	@RequestMapping(method=RequestMethod.POST , value = "/registerOwner")
+	public boolean register(@RequestBody User user) throws SQLException {
+		
+		return (manager.addUser(user));
 	}
 
 	@Override
