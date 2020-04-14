@@ -25,14 +25,14 @@ public class AdministratorController extends UserController
 	AdministratorManager manager = new AdministratorManager();
 
 	@Override
-	@RequestMapping(method=RequestMethod.POST , value = "/registerAdmin")
+	@RequestMapping(method=RequestMethod.POST , value = "/register/Admin")
 	public boolean register(@RequestBody User user) throws SQLException {
 		
 		return (manager.addUser(user));
 	}
 
 	@Override
-	@RequestMapping(method = RequestMethod.GET , value = "/onlineStore/LoginAdmin")
+	@RequestMapping(method = RequestMethod.POST , value = "/Login/Admin")
 	public User Login(@RequestBody User user) throws SQLException 
 	{
 		boolean isReg = manager.isRegisterd(user);

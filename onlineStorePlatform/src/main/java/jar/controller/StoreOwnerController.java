@@ -22,14 +22,14 @@ public class StoreOwnerController extends UserController
 
 		
 	@Override
-	@RequestMapping(method=RequestMethod.POST , value = "/registerOwner")
+	@RequestMapping(method=RequestMethod.POST , value = "/register/Owner")
 	public boolean register(@RequestBody User user) throws SQLException {
 		
 		return (manager.addUser(user));
 	}
 
 	@Override
-	@RequestMapping(method = RequestMethod.GET , value = "/onlineStore/LoginOwner")
+	@RequestMapping(method = RequestMethod.POST , value = "/Login/Owner")
 	public User Login(@RequestBody User user) throws SQLException 
 	{
 		boolean isReg = manager.isRegisterd(user);

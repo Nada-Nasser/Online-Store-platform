@@ -10,7 +10,9 @@ public class DBConnection
 	private volatile static Connection connection; 
 //	private static String connectionUrl = "jdbc:sqlserver://MSI:1433;databaseName=OnlineStore;integratedSecurity=true;";
 
-	private static String connectionUrl = "jdbc:sqlserver://DESKTOP-MMHA4KL:1433;databaseName=OnlineStore;integratedSecurity=true;";
+	//private static String connectionUrl = "jdbc:sqlserver://DESKTOP-MMHA4KL:1433;databaseName=OnlineStore;integratedSecurity=true;";
+
+	private static String connectionUrl = "jdbc:sqlserver://DESKTOP-R2QBSGS:1433;databaseName=OnlineStore;integratedSecurity=true;";
 
 	private DBConnection() {
 

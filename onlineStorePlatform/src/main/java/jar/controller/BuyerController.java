@@ -20,14 +20,14 @@ public class BuyerController extends UserController {
 	UserManager manager = new BuyerManager();
 	
 	@Override
-	@RequestMapping(method=RequestMethod.POST , value = "/registerBuyer")
+	@RequestMapping(method=RequestMethod.POST , value = "/register/Buyer")
 	public boolean register(@RequestBody User user) throws SQLException {
 			
 			return manager.addUser(user);
 	}
 
 	@Override
-	@RequestMapping(method = RequestMethod.GET , value = "/onlineStore/LoginBuyer")
+	@RequestMapping(method = RequestMethod.POST , value = "/Login/Buyer")
 	public User Login(@RequestBody User user) throws SQLException 
 	{
 		boolean isReg = manager.isRegisterd(user);

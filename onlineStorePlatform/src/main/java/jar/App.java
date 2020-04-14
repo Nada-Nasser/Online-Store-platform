@@ -17,20 +17,7 @@ public class App
 {
    public static void main( String[] args ) throws SQLException
     {	
-	   /*
-    	Connection c =  DBConnection.getConnectoin();
-    	
-    	BuyerController buyerController = new BuyerController();
-    	
-    	if(buyerController.Login(new Buyer("User1@gmail.com", "User1", "123")) != null)
-    		{
-    			System.out.println("login");
-    		}
-    	else
-    	{
-    		System.out.println("ERROR");
-    	}
-    	*/
+
     	SpringApplication.run(App.class, args);
     }
 }
