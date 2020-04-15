@@ -1,16 +1,13 @@
 package jar;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 
-import jar.DBConnection.DBConnection;
-import jar.controller.BuyerController;
-import jar.user.Buyer;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
+import jar.SecurityConfigeration.SecurityConfig;
 import java.sql.SQLException;
-import java.text.ParseException;
+
 
 @SpringBootApplication
 public class App 

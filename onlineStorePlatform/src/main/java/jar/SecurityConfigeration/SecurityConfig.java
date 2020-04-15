@@ -1,11 +1,14 @@
 package jar.SecurityConfigeration;
 
+import java.beans.BeanProperty;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,18 +16,25 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter 
 {
 
-	@Autowired
-	DataSource dataSource;
-	@Bean
+/*
+   @Bean
 	DataSource dataSource() throws SQLException {
-	    SQLServerDataSource dataSource = new SQLServerDataSource();
-	    dataSource.setURL("jdbc:sqlserver://DESKTOP-R2QBSGS:1433;databaseName=OnlineStore;integratedSecurity=true;");
-	    return dataSource;
+    SQLServerDataSource dataSource = new SQLServerDataSource();
+    dataSource.setUser("sa");
+    dataSource.setPassword("");
+    dataSource.setURL("jdbc:sqlserver://DESKTOP-R2QBSGS:1433;databaseName=OnlineStore");
+    return dataSource;
 	}
+	 
+*/	 
+
+	@Autowired 
+	DataSource dataSource;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -40,16 +50,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		
+		/*
 		auth
 			.inMemoryAuthentication()
 				.withUser("admin").password("123").roles("ADMIN");
-		/*auth
+		*/
+		auth
 			.jdbcAuthentication()
 			.dataSource(dataSource)
-			.usersByUsernameQuery(" ") // query to get the user name , password, email,... of the users 
-			.authoritiesByUsernameQuery(" "); // query to get the "role" of the users returned from the prev. query
-	*/
+			.usersByUsernameQuery("SELECT * FROM USERS WHERE email = ?") // query to get the user name , password, email,... of the users 
+			.rolePrefix("ADMIN");
+			//.authoritiesByUsernameQuery(" "); // query to get the "role" of the users returned from the prev. query
+	
 	}
 	
 }
