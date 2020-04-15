@@ -1,6 +1,5 @@
 package jar.SecurityConfigeration;
 
-import java.beans.BeanProperty;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
