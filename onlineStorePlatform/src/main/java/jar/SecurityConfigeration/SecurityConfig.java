@@ -40,8 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/register/*", "/Login/*").permitAll()		
-				.antMatchers("/getUsers").hasRole("ADMIN")			
+				.antMatchers("/register/*", "/Login/*").permitAll().anyRequest().authenticated()	
+				.antMatchers("/getUsers").hasRole("Admin").anyRequest().authenticated()
 				.and()
 			.formLogin();
 		
@@ -49,19 +49,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	}
 
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		/*
-		auth
-			.inMemoryAuthentication()
-				.withUser("admin").password("123").roles("ADMIN");
-		*/
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {		
 		auth
 			.jdbcAuthentication()
 			.dataSource(dataSource)
-			.usersByUsernameQuery("SELECT * FROM USERS WHERE email = ?") // query to get the user name , password, email,... of the users 
-			.rolePrefix("ADMIN");
-			//.authoritiesByUsernameQuery(" "); // query to get the "role" of the users returned from the prev. query
-	
+			.usersByUsernameQuery("SELECT email,password,enabled FROM Administrator WHERE email = ?") // query to get the user name , password, email,... of the users 
+			.authoritiesByUsernameQuery("SELECT email,authority FROM Administrator WHERE email = ?"); // query to get the "role" of the users returned from the prev. query
 	}
 	
 }

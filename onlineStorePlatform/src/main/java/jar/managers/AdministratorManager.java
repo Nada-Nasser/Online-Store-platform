@@ -89,10 +89,12 @@ public class AdministratorManager extends UserManager{
 			Connection conn = DBConnection.getConnectoin();
 			PreparedStatement stmt;
 			try {
-				stmt = conn.prepareStatement("INSERT INTO Administrator(Name, password, email) VALUES (?, ?, ?)");
+				stmt = conn.prepareStatement("INSERT INTO Administrator(Name, password, email,authority,enabled) VALUES (?, ?, ?,?,?)");
 				stmt.setString(1, user.getName());
 				stmt.setString(2, user.getPassword());
 				stmt.setString(3, user.getEmail());
+				stmt.setString(4,"Admin");
+				stmt.setBoolean(5, true);
 				stmt.executeUpdate();
 				return true;
 			} catch (SQLException e) {
