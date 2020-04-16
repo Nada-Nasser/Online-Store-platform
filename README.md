@@ -42,6 +42,6 @@ This platform will help customers to buy or explore products and small stores (b
 
 * **Nada Nasser** - [Nada Nasser](https://github.com/Nada-Nasser)
 * **Farah Mohamed** - [Farah Mohamed](https://github.com/farah-afifi)
-* **Hussien Hossam** - [Hussien Hossam](https://github.com/Hussien-Hossam-Idris)
+* **Hussien Hossam** - [Hussien Hossam](https://github.com/Hussein-Hossam-Idris)
 * **Omar Ashraf** - [Omar Ashraf](https://github.com/OmarAshrafLabib99)
 
