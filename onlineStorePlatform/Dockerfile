@@ -6,6 +6,6 @@
 # Alpine Linux with OpenJDK JRE
 FROM openjdk:8-jre-alpine
 # copy fat WAR
-COPY target/onlineStorePlatform.jar /onlineStorePlatform.war
+COPY target/onlineStorePlatform.jar /onlineStorePlatform.jar
 # runs application
-CMD ["java", "-jar", "-Dspring.profiles.active=default", "/onlineStorePlatform.war"]
+CMD ["java", "-jar", "-Dspring.profiles.active=default", "/onlineStorePlatform.jar"]
