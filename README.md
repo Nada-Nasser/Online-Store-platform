@@ -29,7 +29,7 @@ This platform will help customers to buy or explore products and small stores (b
 
 ### Prerequisites
 
-* 1- Microsoft SQL server with this [database](https://github.com/)
+* 1- Microsoft SQL server with this [database](https://github.com/Nada-Nasser/Online-Store-platform/blob/Nada/CreateDatabase.ddl)
 * 2- postman
 * 3- Springboot 
 
@@ -40,8 +40,8 @@ This platform will help customers to buy or explore products and small stores (b
 
 ## Authors
 
-* **Nada Nasser** - [Nada Nasser](https://github.com/Nada-Nasser)
-* **Farah Mohamed** - [Farah Mohamed](https://github.com/farah-afifi)
-* **Hussien Hossam** - [Hussien Hossam](https://github.com/Hussein-Hossam-Idris)
-* **Omar Ashraf** - [Omar Ashraf](https://github.com/OmarAshrafLabib99)
+* [Nada Nasser](https://github.com/Nada-Nasser)
+* [Farah Mohamed](https://github.com/farah-afifi)
+* [Hussien Hossam](https://github.com/Hussein-Hossam-Idris)
+* [Omar Ashraf](https://github.com/OmarAshrafLabib99)
 
