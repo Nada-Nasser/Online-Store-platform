@@ -1,37 +1,18 @@
 package jar.SecurityConfigeration;
 
-import java.sql.SQLException;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter 
 {
-
-/*
-   @Bean
-	DataSource dataSource() throws SQLException {
-    SQLServerDataSource dataSource = new SQLServerDataSource();
-    dataSource.setUser("sa");
-    dataSource.setPassword("");
-    dataSource.setURL("jdbc:sqlserver://DESKTOP-R2QBSGS:1433;databaseName=OnlineStore");
-    return dataSource;
-	}
-	 
-*/	 
-
 	@Autowired 
 	DataSource dataSource;
 	

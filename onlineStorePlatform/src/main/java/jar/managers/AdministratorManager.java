@@ -14,7 +14,7 @@ import jar.DBConnection.DBConnection;
 import jar.user.*;
 
 @Service("Admin")
-public class AdministratorManager extends UserManager{
+public class AdministratorManager implements UserManager{
 
 	public List<User> getUsers() throws SQLException
 	{

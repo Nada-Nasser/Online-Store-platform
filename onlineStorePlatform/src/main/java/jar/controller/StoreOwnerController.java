@@ -1,8 +1,6 @@
 package jar.controller;
 
 import java.sql.SQLException;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +12,7 @@ import jar.managers.*;
 import jar.user.*;
 
 @RestController
-public class StoreOwnerController extends UserController 
+public class StoreOwnerController implements UserController 
 {
 	@Autowired
 	@Qualifier("Owner")

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ import jar.DBConnection.DBConnection;
 import jar.user.User;
 
 @Service("Buyer")
-public class BuyerManager extends UserManager {
+public class BuyerManager implements UserManager {
 
 	
 
@@ -49,7 +48,6 @@ public class BuyerManager extends UserManager {
 
 	@Override
 	public boolean addUser(User user) throws SQLException {
-		// TODO Auto-generated method stub
 			if(isRegisterd(user))
 			{
 				return false;
@@ -67,7 +65,6 @@ public class BuyerManager extends UserManager {
 					stmt.executeUpdate();
 					return true;
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					return false;
 				}

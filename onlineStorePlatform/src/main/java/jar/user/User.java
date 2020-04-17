@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-//@JsonDeserialize(as = Buyer.class)
 
 @JsonTypeInfo(use = Id.NAME,
 include = JsonTypeInfo.As.PROPERTY,

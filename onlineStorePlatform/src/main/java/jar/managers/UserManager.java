@@ -1,14 +1,13 @@
 package jar.managers;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import jar.user.User;
 
 @Service
-public abstract class UserManager {
-	public abstract boolean isRegisterd(User user) throws SQLException;
-	public abstract boolean addUser(User user) throws SQLException;
+public interface UserManager {
+	public boolean isRegisterd(User user) throws SQLException;
+	public boolean addUser(User user) throws SQLException;
 }

@@ -13,7 +13,7 @@ import jar.managers.UserManager;
 import jar.user.User;
 
 @RestController
-public class BuyerController extends UserController {
+public class BuyerController implements UserController {
 
 	@Autowired
 	@Qualifier("Buyer")
